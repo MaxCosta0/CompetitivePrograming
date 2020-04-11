@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -5,23 +6,22 @@ using namespace std;
 
 typedef pair<int, int> pii;
 typedef vector<int> vi;
-typedef vector<pair<int, int>> vpii;
-typedef long long ll;	
+typedef vector<pair<int, int>> vpii;	
 
 int N;
 
-int fib(int x){
-	if(x == 0) return 0;	
-	if(x == 1) return 1;	
-	return fib(x-1) + fib(x-2);
+int fat(int n){
+	if(n == 0) return 1;
+	return fat(n-1)*n;
 }
-
 int main(){
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
 
 	cin >> N;
+	cout << fat(N) << "\n";
 
-	cout << fib(N) << "\n";
+ 	
+	return 0;
 }

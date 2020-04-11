@@ -8,15 +8,19 @@ typedef vector<int> vi;
 typedef vector<pair<int, int>> vpii;
 typedef long long ll;	
 
+#define NMAX 100005
+
 int N;
-bool notprime[1010101010];
+bool notprime[NMAX];
+
 void crivo(){
 	notprime[1] = true;
-	for(int i = 2; i <= N; i++){
-		if(notprime[i] == true) continue;
-		for(int j = 2; i*j <= N; j++){
-			notprime[j*i] = true;
-		}
+	for(int i = 2; i*i <= N; i++){
+		if(notprime[i] == false){
+			for(int j = 2; j*i <= N; j++){
+				notprime[j*i] = true;
+			}
+		} 
 	}
 	return;
 }
@@ -26,12 +30,13 @@ int main(){
 	cin.tie(0);
 	cout.tie(0);
 
-	cin >> N;
-	crivo();
-	if(notprime[N])
-		cout << "S\n";
-	else
-		cout << "N\n";
+	 cin >> N;
+	 crivo();
+
+	for(int i = 2; i <= N; i++){
+		if(!notprime[i]) cout << i << " ";
+	}
+	cout << "\n";
 
 	return 0;
 }
