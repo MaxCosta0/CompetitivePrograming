@@ -1,13 +1,18 @@
 # CompetitivePrograming
 
-NEPS: Max (Sisterolli Reverso)
+Neps: Max (Sisterolli Reverso)
 <br>
+
 Codeforces: max_costa
 <br>
+
 URI: MAX COSTA
 <br>
-CODECHEF: max_costa
+
+CodeChef: max_costa
 <br>
-ATCODER: max_costa
+
+AtCoder: max_costa
 <br>
-LEETCODE: max_costa
+
+LeetCode: max_costa
