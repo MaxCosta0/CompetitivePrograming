@@ -3,16 +3,16 @@
 Neps: Max (Sisterolli Reverso)
 <br>
 
-Codeforces: max_costa
+Codeforces: TheKu
 <br>
 
 URI: MAX COSTA
 <br>
 
-CodeChef: max_costa
+CodeChef: theku
 <br>
 
-AtCoder: max_costa
+AtCoder: Theku
 <br>
 
 LeetCode: max_costa
