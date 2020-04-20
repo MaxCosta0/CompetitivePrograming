@@ -12,7 +12,7 @@ URI: MAX COSTA
 CodeChef: theku
 <br>
 
-AtCoder: Theku
+AtCoder: TheKu
 <br>
 
 LeetCode: max_costa
