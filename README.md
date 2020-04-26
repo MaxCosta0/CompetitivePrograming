@@ -1,18 +1,18 @@
 # CompetitivePrograming
 
-Neps: Max (Sisterolli Reverso)
+Neps: Max (Lycht)
 <br>
 
-Codeforces: TheKu
+Codeforces: Lycht
 <br>
 
 URI: MAX COSTA
 <br>
 
-CodeChef: theku
+CodeChef: lycht
 <br>
 
-AtCoder: TheKu
+AtCoder: Lycht
 <br>
 
 LeetCode: max_costa
