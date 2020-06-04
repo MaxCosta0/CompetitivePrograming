@@ -24,6 +24,7 @@ int N, capacidade;
 int value[MAXN];
 int wgt[MAXS];
 int memo[MAXN][MAXS];
+vi ans;
 
 int solve(int obj, int cap){	//Cada estado é definido pelo objeto que estou olhando e a capacidade atual da mochila
 
@@ -37,6 +38,22 @@ int solve(int obj, int cap){	//Cada estado é definido pelo objeto que estou olh
 	return pdm = max( value[obj] + solve(obj + 1, cap - wgt[obj]) ,  solve(obj + 1, cap)); //A minha resposta será o maior entre pegar o objeto e nao pegar o objeto.
 }
 
+void recover(int obj, int cap){	//Função que recupera os objetos que eu devo colocar na mochila
+
+	if(obj == N) return;
+
+	int pega = value[obj] + solve(obj + 1, cap - wgt[obj]);
+	int passa = solve(obj + 1, cap);
+
+	if(pega >= passa){
+		ans.pb(obj);
+		recover(obj + 1, cap - wgt[obj]);
+	}else{
+		recover(obj + 1, cap);
+	}
+
+}
+
 int main(){
 	ios::sync_with_stdio(false);
 	cin.tie(0);
@@ -48,8 +65,14 @@ int main(){
 	}
 
 	memset(memo, -1, sizeof memo);
+	recover(0, capacidade);
 
 	cout << solve(0, capacidade) << "\n";
+
+	for(auto x: ans){
+		cout << x << " ";
+	}
+	cout << "\n";
 
 	return 0;	
 }

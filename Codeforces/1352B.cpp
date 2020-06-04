@@ -9,44 +9,50 @@ using namespace std;
 #define MAXM 100005
 #define pi 3.14159265359
 
+typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 typedef vector<pair<int, int>> vpii;
-typedef long long ll;
 typedef priority_queue<int> pqi;
 typedef priority_queue<pii, vpii, greater<pii> > dij;
 
-int t, n;
+int t, n, k;
 
 int main(){
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
 
- 	cin >> t;
+	cin >> t;
+	while(t--){
+		cin >> n >> k;
 
- 	while(t--){
- 		cin >> n;
- 		vi e(n);
- 		for(int i = 0; i < n; i++){
- 			cin >> e[i];
- 		}
+		int odd = (k-1)*1;
+		int even = (k-1)*2;
 
- 		sort(e.begin(), e.end());
+		if( ((n - odd) & 1) and (n-odd) > 0 ){
+			cout << "YES\n";
+			for(int i = 0; i < k-1; i++){
+				cout << 1 << " ";
+			}
 
- 		int curr = 1;
- 		int ans = 0;
+			cout << n-odd << "\n";
+		}
 
- 		for(int i = 0; i < n; i++){
- 			if(curr >= e[i]){
- 				ans++;
- 				curr = 1;
- 			}else
- 				curr++;
- 		}
+		else if( (!( (n-even) & 1) ) and (n-even) > 0){
+			cout << "YES\n";
+			for(int i = 0; i < k-1; i++){
+				cout << 2 << " ";
+			}
+			cout << n-even << "\n";
+		}
 
- 		cout << ans << "\n";
- 	}
+		else{
+			cout << "NO\n";
+		}
 
+
+	}
 	return 0;
+
 }

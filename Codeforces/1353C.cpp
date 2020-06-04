@@ -9,10 +9,10 @@ using namespace std;
 #define MAXM 100005
 #define pi 3.14159265359
 
+typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 typedef vector<pair<int, int>> vpii;
-typedef long long ll;
 typedef priority_queue<int> pqi;
 typedef priority_queue<pii, vpii, greater<pii> > dij;
 
@@ -23,30 +23,17 @@ int main(){
 	cin.tie(0);
 	cout.tie(0);
 
- 	cin >> t;
+	cin >> t;
+	while(t--){
+		ll ans = 0;
 
- 	while(t--){
- 		cin >> n;
- 		vi e(n);
- 		for(int i = 0; i < n; i++){
- 			cin >> e[i];
- 		}
+		cin >> n;
+		for(ll i = 1; i <= n/2; i++){
+			ans += 8*i*i;
+		}
 
- 		sort(e.begin(), e.end());
+		cout << ans << "\n";
 
- 		int curr = 1;
- 		int ans = 0;
+	}
 
- 		for(int i = 0; i < n; i++){
- 			if(curr >= e[i]){
- 				ans++;
- 				curr = 1;
- 			}else
- 				curr++;
- 		}
-
- 		cout << ans << "\n";
- 	}
-
-	return 0;
 }

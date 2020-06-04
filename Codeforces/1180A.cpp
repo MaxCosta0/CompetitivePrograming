@@ -9,44 +9,33 @@ using namespace std;
 #define MAXM 100005
 #define pi 3.14159265359
 
+typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 typedef vector<pair<int, int>> vpii;
-typedef long long ll;
 typedef priority_queue<int> pqi;
 typedef priority_queue<pii, vpii, greater<pii> > dij;
 
-int t, n;
+int t, n, k;
+int memo[110];
+
+int solve(int x){
+	if(x == 1) return 1;
+
+	if(memo[x] != 0) return memo[x];
+
+	return memo[x] = 4*(x-1)+solve(x-1);
+}
 
 int main(){
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
 
- 	cin >> t;
+	cin >> n;
 
- 	while(t--){
- 		cin >> n;
- 		vi e(n);
- 		for(int i = 0; i < n; i++){
- 			cin >> e[i];
- 		}
-
- 		sort(e.begin(), e.end());
-
- 		int curr = 1;
- 		int ans = 0;
-
- 		for(int i = 0; i < n; i++){
- 			if(curr >= e[i]){
- 				ans++;
- 				curr = 1;
- 			}else
- 				curr++;
- 		}
-
- 		cout << ans << "\n";
- 	}
+	cout << solve(n) << "\n";
 
 	return 0;
+
 }

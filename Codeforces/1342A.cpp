@@ -16,37 +16,36 @@ typedef long long ll;
 typedef priority_queue<int> pqi;
 typedef priority_queue<pii, vpii, greater<pii> > dij;
 
-int t, n;
+ll t, x, y, a, b;
 
 int main(){
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
 
- 	cin >> t;
+	cin >> t;
+	while(t--){
+		cin >> x >> y;
+		cin >> a >> b;
+		ll ans = 0;
+		ll ans1 = 0;
 
- 	while(t--){
- 		cin >> n;
- 		vi e(n);
- 		for(int i = 0; i < n; i++){
- 			cin >> e[i];
- 		}
+		ans1 += max(x, y)*a;
+		ans1 += min(x, y)*a;
 
- 		sort(e.begin(), e.end());
+		if(x > y){
+			ans += y*b;
+			x -= y;
+			ans+= x*a;
+		}else{
+			ans += x*b;
+			y -= x;
+			ans+= y*a;
+		}
 
- 		int curr = 1;
- 		int ans = 0;
+		cout << min(ans, ans1) << "\n";
 
- 		for(int i = 0; i < n; i++){
- 			if(curr >= e[i]){
- 				ans++;
- 				curr = 1;
- 			}else
- 				curr++;
- 		}
-
- 		cout << ans << "\n";
- 	}
+	}
 
 	return 0;
 }
